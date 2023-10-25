@@ -124,8 +124,11 @@ label {
     padding: 20px;
     color: rgb(163, 163, 163);
 }
-
 @media only screen and (max-width: 768px) {
+    .main-logo{
+        margin-top: 5vh;
+    }
+
     .main-logo-img {
         width: 70%;
     }
@@ -133,5 +136,13 @@ label {
     .search-container {
         width: 80%;
         margin: 50px auto;
+    }
+
+    .home-paragraph{
+        width: 80%;
+    }
+
+    .footer-filler{
+        height: 20vh;
     }
 }
