@@ -27,10 +27,10 @@ let onClickCheck = () =>{
 
     let link = document.getElementById("search").value;
 
-    fetch('https://jsonplaceholder.typicode.com/comments?postId=1')
+    fetch('http://127.0.0.1:8000/check/' + link)
         .then(response => response.json())
         .then(data => {
-            console.log(link);
+            console.log(data);
 
             const randomValue = generateRandomValue();
             let percentage = Math.round(roundToTwoDecimalPlaces(randomValue) * 100);
