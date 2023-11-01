@@ -2,9 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import random
 
-
 app = FastAPI()
-
 
 origins = [
     "http://127.0.0.1:5500"
@@ -18,6 +16,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get('/')
+async def root():
+    return {'result' : 'API is running...'}
+
 @app.get('/check/{link}')
-async def root(link : str):
-    return {'title' : 'testing the endpoint' , 'data' : link}
+async def getResults(link : str):
+    return {'title' : 'testing the endpoint' , 'result' : link}

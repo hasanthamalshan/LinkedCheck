@@ -17,20 +17,40 @@ function roundToTwoDecimalPlaces(number) {
     return Number(number.toFixed(2));
 }
 
+function processInputlink(link){
+
+    try{
+        let splitted_url = link.split("/");
+        let title_url = splitted_url[5].split("?", 1);
+        let title_url_splitted = title_url[0].split("-");
+    
+        let job_id = title_url_splitted.slice(-1)[0];
+    
+        return job_id;
+    }catch(e){
+        return e;
+    }
+}
+
 let onClickCheck = () =>{
 
     submit_btn.disabled = true;
-    submit_btn_check.style.display = "none"
+    submit_btn_check.style.display = "none";
     home_para.style.display = "none";
-    submit_btn_spinner.style.display = "block"
+    submit_btn_spinner.style.display = "block";
     home_checking_block.style.display = "block";
 
     let link = document.getElementById("search").value;
 
-    fetch('http://127.0.0.1:8000/check/' + link)
+    let jobId = processInputlink(link);
+
+    let isValidJobId = /^\d+$/.test(jobId);
+
+    if(isValidJobId){
+        fetch('http://127.0.0.1:8000/check/' + jobId)
         .then(response => response.json())
         .then(data => {
-            console.log(data);
+            console.log(data.result);
 
             const randomValue = generateRandomValue();
             let percentage = Math.round(roundToTwoDecimalPlaces(randomValue) * 100);
@@ -50,15 +70,41 @@ let onClickCheck = () =>{
             document.getElementById("search").value = ""
             submit_btn.disabled = false;
             submit_btn_check.style.display = "block"
+            home_results_block.style.display = "block";
             submit_btn_spinner.style.display = "none"
             home_checking_block.style.display = "none";
         })
         .catch(error => {
             console.error('Error fetching data:', error);
             submit_btn.disabled = false;
-            submit_btn_check.style.display = "block"
+            submit_btn_check.style.display = "block";
             home_para.style.display = "block";
-            submit_btn_spinner.style.display = "none"
+            submit_btn_spinner.style.display = "none";
             home_checking_block.style.display = "none";
+            home_results_block.style.display = "none";
         });
+
+    }else{
+        console.error('Looks like an invalid job url...');
+        submit_btn.disabled = false;
+        submit_btn_check.style.display = "block";
+        home_para.style.display = "block";
+        submit_btn_spinner.style.display = "none";
+        home_checking_block.style.display = "none";
+        home_results_block.style.display = "none";
+    }  
 }
+
+
+// let onClickCheck = () =>{
+//  let url ="https://www.linkedin.com/jobs/view/senior-technical-program-manager-at-linkedin-3729307418?refId=N45rByzXN5BK%2BmG%2F9auXxA%3D%3D&trackingId=TUUQG0t9e4Vf1gvDjGh2wg%3D%3D&trk=org-job-results";
+
+//  let splitted_url = url.split("/");
+//  let title_url = splitted_url[5].split("?", 1);
+//  let title_url_splitted = title_url[0].split("-");
+
+//  let job_id = title_url_splitted.slice(-1)[0];
+
+//  console.log(job_id);
+
+// }
