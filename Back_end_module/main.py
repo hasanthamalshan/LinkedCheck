@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import random
+import scraper
 
 app = FastAPI()
 
@@ -22,4 +23,5 @@ async def root():
 
 @app.get('/check/{link}')
 async def getResults(link : str):
-    return {'title' : 'testing the endpoint' , 'result' : link}
+    job_data = scraper.scrape(link)
+    return job_data

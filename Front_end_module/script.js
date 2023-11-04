@@ -50,7 +50,7 @@ let onClickCheck = () =>{
         fetch('http://127.0.0.1:8000/check/' + jobId)
         .then(response => response.json())
         .then(data => {
-            console.log(data.result);
+            // console.log(JSON.stringify(data));
 
             const randomValue = generateRandomValue();
             let percentage = Math.round(roundToTwoDecimalPlaces(randomValue) * 100);
@@ -66,6 +66,9 @@ let onClickCheck = () =>{
             }
 
             home_results_block.textContent = percentage + "%"
+
+            home_para.textContent = data.job_title
+            home_para.style.display = "block";
 
             document.getElementById("search").value = ""
             submit_btn.disabled = false;
