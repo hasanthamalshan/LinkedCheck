@@ -24,6 +24,11 @@ def scrape(jobId):
         job_object["level"] = soup.find("ul",{"class":"description__job-criteria-list"}).find("li").text.replace("Seniority level","").strip()
     except:
         job_object["level"] = None
+    
+    try:
+        job_object["description"] = soup.find("div",{"class":"show-more-less-html__markup"}).text.strip()
+    except:
+        job_object["description"] = None
 
 
     return job_object

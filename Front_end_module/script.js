@@ -67,7 +67,7 @@ let onClickCheck = () =>{
 
             home_results_block.textContent = percentage + "%"
 
-            home_para.textContent = data.job_title
+            home_para.textContent = data.description
             home_para.style.display = "block";
 
             document.getElementById("search").value = ""
@@ -97,17 +97,3 @@ let onClickCheck = () =>{
         home_results_block.style.display = "none";
     }  
 }
-
-
-// let onClickCheck = () =>{
-//  let url ="https://www.linkedin.com/jobs/view/senior-technical-program-manager-at-linkedin-3729307418?refId=N45rByzXN5BK%2BmG%2F9auXxA%3D%3D&trackingId=TUUQG0t9e4Vf1gvDjGh2wg%3D%3D&trk=org-job-results";
-
-//  let splitted_url = url.split("/");
-//  let title_url = splitted_url[5].split("?", 1);
-//  let title_url_splitted = title_url[0].split("-");
-
-//  let job_id = title_url_splitted.slice(-1)[0];
-
-//  console.log(job_id);
-
-// }
