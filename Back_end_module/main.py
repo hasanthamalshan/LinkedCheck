@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-import random
-import scraper
+
+import scraper # custom module for scraping the data 
 
 app = FastAPI()
 
