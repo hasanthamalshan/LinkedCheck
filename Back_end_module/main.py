@@ -24,4 +24,5 @@ async def root():
 @app.get('/check/{link}')
 async def getResults(link : str):
     job_data = scraper.scrape(link)
+    print(job_data)
     return job_data

@@ -30,5 +30,10 @@ def scrape(jobId):
     except:
         job_object["description"] = None
 
+    try:
+        job_object["data_obj"] = soup.find("script", attrs={'type': 'application/ld+json'}).text.strip()
+    except:
+        job_object["data_obj"] = None
+
 
     return job_object
