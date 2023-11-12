@@ -3,9 +3,11 @@ import string
 from nltk.stem import WordNetLemmatizer
 from nltk import word_tokenize
 import nltk
+from nltk.corpus import stopwords
+
 nltk.download('stopwords')
 nltk.download('punkt')
-from nltk.corpus import stopwords
+nltk.download('wordnet')
 
 
 def convert_to_lower(text):
