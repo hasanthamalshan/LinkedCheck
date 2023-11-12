@@ -1,10 +1,11 @@
 import re
 import string 
-from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from nltk import word_tokenize
-
+import nltk
 nltk.download('stopwords')
+from nltk.corpus import stopwords
+
 
 def convert_to_lower(text):
     return text.lower()
