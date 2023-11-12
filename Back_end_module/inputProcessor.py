@@ -4,6 +4,8 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from nltk import word_tokenize
 
+nltk.download('stopwords')
+
 def convert_to_lower(text):
     return text.lower()
 

@@ -44,7 +44,7 @@ let onClickCheck = () =>{
     let isValidJobId = /^\d+$/.test(jobId);
 
     if(isValidJobId){
-        fetch('http://127.0.0.1:8000/check/' + jobId)
+        fetch('https://linked-check-api.onrender.com/check/' + jobId)
         .then(response => response.json())
         .then(data => {
             if(data.prediction){
