@@ -25,15 +25,10 @@ async def root():
 
 @app.get('/check/{link}')
 async def getResults(link : str):
+    
     job_data = scraper.scrape(link)
-    new_record = inputProcessor.processInput(job_data)
 
-    # new_record = {
-    #     'title': job_data["job_title"],
-    #     'employment_type': job_data["employment_type"],
-    #     'required_experience': job_data["seniority_level"],
-    #     'text_length': len(job_data["job_description"])
-    # }
+    new_record = inputProcessor.processInput(job_data)
 
     new_predictions =predictor.predict(new_record)
 
