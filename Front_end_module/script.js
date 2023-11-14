@@ -4,14 +4,7 @@ let submit_btn_check = document.getElementById("submit-btn-check");
 let submit_btn_spinner = document.getElementById("submit-btn-spinner");
 let home_checking_block = document.getElementById("home-checking-block");
 let home_results_block = document.getElementById("home-results-block");
-
-window.onload = function() { 
-    // submit_btn_spinner.style.display = "none"
-}
-
-function roundToTwoDecimalPlaces(number) {
-    return Number(number.toFixed(2));
-}
+let home_results_disclaimer = document.getElementById("home-results-disclaimer");
 
 function processInputlink(link){
 
@@ -36,6 +29,7 @@ let onClickCheck = () =>{
     submit_btn_spinner.style.display = "block";
     home_checking_block.style.display = "block";
     home_results_block.style.display = "none";
+    home_results_disclaimer.style.display = "none";
 
     let link = document.getElementById("search").value;
 
@@ -61,6 +55,7 @@ let onClickCheck = () =>{
             submit_btn.disabled = false;
             submit_btn_check.style.display = "block"
             home_results_block.style.display = "block";
+            home_results_disclaimer.style.display = "block";
             submit_btn_spinner.style.display = "none"
             home_checking_block.style.display = "none";
         })
@@ -72,6 +67,7 @@ let onClickCheck = () =>{
             submit_btn_spinner.style.display = "none";
             home_checking_block.style.display = "none";
             home_results_block.style.display = "none";
+            home_results_disclaimer.style.display = "none";
         });
 
     }else{
@@ -82,5 +78,6 @@ let onClickCheck = () =>{
         submit_btn_spinner.style.display = "none";
         home_checking_block.style.display = "none";
         home_results_block.style.display = "none";
+        home_results_disclaimer.style.display = "none";
     }  
 }

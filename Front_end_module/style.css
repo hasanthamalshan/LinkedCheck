@@ -141,6 +141,15 @@ label {
     font-weight: 500;
 }
 
+#home-results-disclaimer{
+    width: 50%;
+    text-align:justify;
+    margin: auto;
+    font-family: 'Poppins', sans-serif;
+    color: #5b5b5b;
+    display: none;
+}
+
 .home-paragraph-name{
     color: rgb(255, 187, 0);
     font-weight: 600;
